@@ -6,6 +6,7 @@ import BlogPosts from './pages/blogPosts/BlogPosts.jsx';
 import OverviewPage from './pages/overviewPage/OverviewPage.jsx';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage.jsx';
 import Navigation from './components/navigation/Navigation.jsx';
+import BlogPostPagina from "./components/blogPostPage/BlogPostPagina.jsx";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/blogposts" element={<BlogPosts/>}/>
                 <Route path="/overview-page" element={<OverviewPage/>}/>
                 <Route path="*" element={<NotFoundPage/>}/>
+                <Route path="/blogpost-pagina/:posts/234" element={<BlogPostPagina/>}/>
             </Routes>
 
 
