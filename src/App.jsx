@@ -18,9 +18,9 @@ function App() {
                 <Route path="/blogposts" element={<BlogPosts/>}/>
                 <Route path="/overview-page" element={<OverviewPage/>}/>
                 <Route path="*" element={<NotFoundPage/>}/>
-                <Route path="/blogpost-detail-pagina/:id/234" element={<BlogPostDetailPage/>}/>
+                <Route path="/blogpost-detail-pagina/:id" element={<BlogPostDetailPage/>}/>
             </Routes>
-            <OverviewPage/>
+
 
 
         </>
