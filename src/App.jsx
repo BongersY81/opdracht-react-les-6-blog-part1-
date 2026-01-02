@@ -6,7 +6,7 @@ import BlogPosts from './pages/blogPosts/BlogPosts.jsx';
 import OverviewPage from './pages/overviewPage/OverviewPage.jsx';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage.jsx';
 import Navigation from './components/navigation/Navigation.jsx';
-import BlogPostPagina from "./components/blogPostPage/BlogPostPagina.jsx";
+import BlogPostDetailPage from "./pages/blogPostDetailPage/BlogPostDetailPage.jsx";
 
 function App() {
     return (
@@ -18,14 +18,11 @@ function App() {
                 <Route path="/blogposts" element={<BlogPosts/>}/>
                 <Route path="/overview-page" element={<OverviewPage/>}/>
                 <Route path="*" element={<NotFoundPage/>}/>
-                <Route path="/blogpost-pagina/:posts/234" element={<BlogPostPagina/>}/>
+                <Route path="/blogpost-detail-pagina/:id/234" element={<BlogPostDetailPage/>}/>
             </Routes>
+            <OverviewPage/>
 
 
-            <div className="page-container">
-                <img src={logo} alt="Company logo"/>
-                <h1>Begin hier met het maken van jouw blog-applicatie!</h1>
-            </div>
         </>
     )
 }
