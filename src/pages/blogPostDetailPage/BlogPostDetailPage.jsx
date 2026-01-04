@@ -3,9 +3,16 @@ import posts from '../../constants/data.json';
 import formatDateToDutch from '../../assets/helpers/formatDateToDutch.js';
 import {Link} from "react-router-dom";
 
+import './BlogPostDetailPage.css';
+
+
 function BlogPostDetailPage() {
     return (
         <div>
+            <header>
+
+
+            </header>
             {posts.length > 0 &&
                 posts.map((post, index) => (
                     <div key={index}>

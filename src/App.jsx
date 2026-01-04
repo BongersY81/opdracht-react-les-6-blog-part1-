@@ -1,5 +1,5 @@
 import './App.css';
-import logo from './assets/logo-white.png';
+
 import { Routes, Route} from 'react-router-dom';
 import Home from './pages/home/Home.jsx';
 import BlogPosts from './pages/blogPosts/BlogPosts.jsx';
