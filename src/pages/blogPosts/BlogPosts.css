@@ -1,33 +1,31 @@
 
-
 .container {
     display: flex;
- flex-direction: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .blog-post-form {
     background-color: seagreen;
-border: 2px solid seagreen;
+    border: 2px solid seagreen;
     border-radius: 10px;
-
 }
 
-input {
-    width: 500px;
-}
-textarea {
-    width: 500px;
+input, textarea {
+    width: 100%;
+    max-width: 800px;
+    min-width: 500px;
 }
 
 button {
-   margin-top: 20px;
-    padding-bottom: 5px ;
-    padding-right: 5px ;
-    border: 2px solid seagreen;
+    display: block;
+    margin:0 auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid black;
     border-radius: 10px;
-    background-color: seagreen;
     width: 200px;
+    background-color: black;
+    color: white;
 }
