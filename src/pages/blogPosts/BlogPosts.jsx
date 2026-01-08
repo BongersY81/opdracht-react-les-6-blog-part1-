@@ -13,11 +13,11 @@ function BlogPosts() {
     const navigate = useNavigate()
 
 
-    // opdracht 3.2//
+    // opdracht 3.2 en 3.3//
 
     function handleSubmit(event) {
         event.preventDefault();
-        navigate("overview-page");
+        navigate("/overview-page");
         console.log(`
  title:${title}
  subtitle:${subtitle}
@@ -28,13 +28,7 @@ function BlogPosts() {
  comments:${0}
  shares:${0}`
         )
-
     }
-
-    // opdracht 3.3/
-
-
-
 
 
     return (
@@ -82,7 +76,7 @@ function BlogPosts() {
                             id="form-message-field"
                             value={messageField}
                             onChange={(e) => setMessageField(e.target.value)}
-                            // minLength={300}
+                            minLength={300}
                             maxLength={2000}
                         />
                     </label>
