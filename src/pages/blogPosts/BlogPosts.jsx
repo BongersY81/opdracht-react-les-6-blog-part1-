@@ -1,8 +1,8 @@
 import {useState} from "react";
 import './BlogPosts.css';
-import getReadTime from "../../assets/helpers/getReadTime.js";
 import {useNavigate} from "react-router-dom";
-
+import axios from "axios";
+import getReadTime from "../../assets/helpers/getReadTime.js";
 
 
 function BlogPosts() {
@@ -10,24 +10,38 @@ function BlogPosts() {
     const [subtitle, setSubtitle] = useState("");
     const [author, setAuthor] = useState("");
     const [messageField, setMessageField] = useState("");
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
 
     // opdracht 3.2 en 3.3//
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        navigate("/overview-page");
-        console.log(`
- title:${title}
- subtitle:${subtitle}
- author:${author}
- messageField:${messageField}
- created:${new Date().toISOString()}
- readTime:${getReadTime(messageField)}
- comments:${0}
- shares:${0}`
-        )
+
+        try {
+            const result = await axios.post("https://novi-backend-api-wgsgz.ondigitalocean.app/api/blogposts",
+                {
+                    title: title,
+                    subtitle: subtitle,
+                    author: author,
+                    content: messageField,
+                    created: new Date().toISOString(),
+                    readTime: getReadTime(messageField),
+                    comments: 0,
+                    shares: 0,
+                },
+                {
+                    headers: {
+                        Accept: '*/*',
+                        'novi-education-project-id': 'cef3eb7c-19dd-4b51-b681-43e26cc8a99d',
+                        'Content-Type': 'application/json',
+                    }
+                });
+            console.log(result.data);
+            navigate("/overview-page");
+        } catch (error) {
+            console.error("sorry er gaat iet mis");
+
+        }
     }
 
 
@@ -76,8 +90,8 @@ function BlogPosts() {
                             id="form-message-field"
                             value={messageField}
                             onChange={(e) => setMessageField(e.target.value)}
-                            minLength={300}
-                            maxLength={2000}
+                            // minLength={300}
+                            // maxLength={2000}
                         />
                     </label>
 
@@ -86,7 +100,7 @@ function BlogPosts() {
 
                         <button type="submit">Toevoegen</button>
                     </div>
-                        </form>
+                </form>
 
             </div>
         </div>

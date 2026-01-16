@@ -1,4 +1,3 @@
-
 import formatDateToDutch from '../../assets/helpers/formatDateToDutch.js';
 import {Link} from "react-router-dom";
 import axios from "axios";
@@ -8,7 +7,7 @@ import {useEffect, useState} from "react";
 
 function BlogPostDetailPage() {
 
-    const [Post, setPost] = useState({})
+    const [post, setPost] = useState({})
     const [error, toggleError] = useState(false)
 
     async function Blogpost() {
@@ -35,25 +34,24 @@ function BlogPostDetailPage() {
 
     useEffect(() => {
         void Blogpost();
-    },[]);
+    }, []);
 
     return (
         <div>
-            <button type="button" onClick={Blogpost}>Haal gekozen blogpost ID op</button>
-            {Post.length > 0 &&
-                Post.map((post, index) => (
-                    <div key={index}>
-                        <h2>{post.title} </h2>
-                        <p>{post.subtitle}</p>
-                        <h3>{"geschreven door"} {post.author} {"op"} {formatDateToDutch(post.created)}</h3>
-                        <h5>🕰️ {post.readTime} {"minuten lezen"} </h5>
-                        <p>{post.content}</p>
-                        <p className="reviews">{post.comments} {"reacties"} - {post.shares} {"keer gedeeld"}</p>
 
-                    </div>
 
-                ))}
+            <h2>{post.title} </h2>
+            <p>{post.subtitle}</p>
+            <h3>{"geschreven door"} {post.author} {"op"} {formatDateToDutch(post.created)}</h3>
+            <h5>🕰️ {post.readTime} {"minuten lezen"} </h5>
+            <p>{post.content}</p>
+            <p className="reviews">{post.comments} {"reacties"} - {post.shares} {"keer gedeeld"}</p>
+
+
+            ))
             {error && <p className="error-message">Er is iets misgegaan. Probeer het nog eens opnieuw</p>}
+
+            <button type="button" onClick={Blogpost}>Haal gekozen blogpost ID op</button>
 
             <div className="back-to-overview">
                 <p> Terug naar de <Link to="/overview-page">overzichtspagina</Link></p>

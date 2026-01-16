@@ -36,9 +36,11 @@ function OverviewPage() {
 
         <div className="overview-blogpost">
 
-            <button type="button" onClick={blogPosts}>Haal de blogposts op</button>
+
+
 
             <h1>Bekijk alle 17 posts op het platform</h1>
+            <button type="button" onClick={blogPosts}>Haal de blogposts op</button>
 
             {Posts.length > 0 &&
                 Posts.map((post, index) => (
@@ -50,6 +52,8 @@ function OverviewPage() {
                 ))}
 
             {error && <p className="error-message">Er is iets misgegaan. Probeer het nog eens opnieuw</p>}
+
+
         </div>
 
     )
