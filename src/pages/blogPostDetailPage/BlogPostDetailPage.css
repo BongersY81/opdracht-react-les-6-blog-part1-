@@ -6,6 +6,13 @@
     color: inherit;
     font-weight: bold;
     text-decoration: underline 2px solid black;
+    position: fixed;
+    bottom: 25%;
+}
+
+.back-to-overview p {
+    position: fixed;
+    bottom: 25%;
 }
 
 .reviews {
@@ -21,5 +28,11 @@
     background-color: seagreen;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%
 }
 

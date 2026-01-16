@@ -1,14 +1,47 @@
-import posts from '../../constants/data.json';
+
 import formatDateToDutch from '../../assets/helpers/formatDateToDutch.js';
 import {Link} from "react-router-dom";
+import axios from "axios";
 import './BlogPostDetailPage.css';
+import {useEffect, useState} from "react";
 
 
 function BlogPostDetailPage() {
+
+    const [Post, setPost] = useState({})
+    const [error, toggleError] = useState(false)
+
+    async function Blogpost() {
+
+        try {
+            const result = await axios.get('https://novi-backend-api-wgsgz.ondigitalocean.app/api/blogposts/6', {
+                headers: {
+                    Accept: '*/*',
+                    'novi-education-project-id': 'cef3eb7c-19dd-4b51-b681-43e26cc8a99d',
+                }
+            });
+            console.log(result.data);
+            setPost(result.data)
+            toggleError(false)
+        } catch (error) {
+            console.error(error);
+            toggleError(true)
+
+        } finally {
+            console.log()
+
+        }
+    }
+
+    useEffect(() => {
+        void Blogpost();
+    },[]);
+
     return (
         <div>
-            {posts.length > 0 &&
-                posts.map((post, index) => (
+            <button type="button" onClick={Blogpost}>Haal gekozen blogpost ID op</button>
+            {Post.length > 0 &&
+                Post.map((post, index) => (
                     <div key={index}>
                         <h2>{post.title} </h2>
                         <p>{post.subtitle}</p>
@@ -20,6 +53,7 @@ function BlogPostDetailPage() {
                     </div>
 
                 ))}
+            {error && <p className="error-message">Er is iets misgegaan. Probeer het nog eens opnieuw</p>}
 
             <div className="back-to-overview">
                 <p> Terug naar de <Link to="/overview-page">overzichtspagina</Link></p>
