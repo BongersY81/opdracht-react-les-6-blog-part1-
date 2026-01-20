@@ -1,0 +1,31 @@
+
+
+header img {
+    width: 25%;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-container {
+    display: flex;
+    background-color: seagreen;
+    border: 2px solid black
+}
+
+.active-menu-link {
+    color: white ;
+    text-decoration: underline;
+}
+
+.default-menu-link {
+    color: black;
+    text-decoration: none;
+}
